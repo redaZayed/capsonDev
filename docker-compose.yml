@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+
+  flask:
+    build: ./flask
+    image: abdelfatahmaher/flask:0.1
+    container_name: flask
+    restart: always
+    environment:
+      - APP_NAME=Udacity-DevOps-NanoDegree-Capstone
+    expose:
+      - 8080
+
+  nginx:
+    image: abdelfatahmaher/nginx
+    build: ./nginx
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
